@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>home</title>
+        <style>
+            body {
+                font-family: Arial;
+                margin: 0;
+            }
+            nav {
+                background: #ff5353;
+                padding: 20px 10px;
+            }
+            nav ul{
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 0;
+            }
+            nav li {
+                list-style-type: none;
+                display: inline-block;
+                margin: 0 10px 0 0;
+            }
+            nav a {
+                color: #fff;
+                font-size: 18px;
+                background: rgba(255, 255, 255, 0.2);
+                text-decoration: none;
+                padding: 10px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                    <% if(user) {%>
+                        <li><a href="/auth/Logout" class="btn btn-lg">Logout</a></li>
+                        <% } else {%>
+                        <li><a href="/auth/Login" class="btn btn-lg">Login</a></li>
+                        <% } %>
+                        <li><a href="/" class="btn btn-lg">Homepage</a></li>
+                        <li><a href="/profile" class="btn btn-lg">Profile</a></li>
+            </ul>
+        </nav>
+        <header>
+            <h1 style="text-align: center;">Welcome to your profile, <%= user.username%> </h1>
+            
+        </header>
+        <main>
+            <img src="<%= user.thumbnail%>" alt="thumbnail">
+            <p>This is your profile thumbnail</p>
+        </main>
+    </body>
+</html>
